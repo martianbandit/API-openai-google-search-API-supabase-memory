@@ -1,4 +1,5 @@
 from supabase import create_client, Client
+from datetime import datetime, timezone
 import os
 
 def create_supabase_client():
@@ -12,7 +13,7 @@ def save_conversation(user_id, prompt, response):
         "user_id": user_id,
         "prompt": prompt,
         "response": response,
-        "timestamp": datetime.utcnow().isoformat()
+        "timestamp": datetime.now(timezone.utc).isoformat()
     }
     supabase.table("Conversations").insert(data).execute()
 
