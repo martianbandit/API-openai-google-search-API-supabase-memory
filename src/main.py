@@ -41,8 +41,7 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     try:
         logging.info("Démarrage de l'application...")
-        # Exécute ta fonction principale
-        main()
+        main()  # Explicitly call the main() function
     except Exception as e:
         logging.error(f"Une erreur s'est produite : {e}")
         sys.exit(1)
