@@ -1,4 +1,8 @@
 import os
+import sys
+import logging
+
+
 from src.google_search import google_search
 from src.openai_analysis import analyze_with_openai
 from src.supabase_memory import save_conversation, get_conversation_history
@@ -34,4 +38,11 @@ def main():
     save_conversation(user_id, prompt, output)
 
 if __name__ == "__main__":
-    main()
+    logging.basicConfig(level=logging.INFO)
+    try:
+        logging.info("Démarrage de l'application...")
+        # Exécute ta fonction principale
+        main_function()
+    except Exception as e:
+        logging.error(f"Une erreur s'est produite : {e}")
+        sys.exit(1)
