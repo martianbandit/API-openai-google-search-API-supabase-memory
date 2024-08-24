@@ -46,9 +46,14 @@ def main():
     print("Résultat de l'analyse:")
     print(output)
 
-    # Sauvegarder la conversation
-    save_conversation(user_id, prompt, output)
-    print("Conversation sauvegardée dans la base de données.")
+    user_id = os.getenv("USER_ID")  # Assurez-vous que USER_ID est défini
+if not user_id:
+    raise ValueError("USER_ID doit être défini.")
+
+
+         # Sauvegarder la conversation
+save_conversation(user_id, prompt, output)
+print("Conversation sauvegardée dans la base de données.")
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
