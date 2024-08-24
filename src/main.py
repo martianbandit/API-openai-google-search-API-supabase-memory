@@ -42,7 +42,7 @@ if __name__ == "__main__":
     try:
         logging.info("Démarrage de l'application...")
         # Exécute ta fonction principale
-        main_function()
+        main()
     except Exception as e:
         logging.error(f"Une erreur s'est produite : {e}")
         sys.exit(1)
