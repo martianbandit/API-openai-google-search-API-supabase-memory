@@ -17,7 +17,11 @@ def save_conversation(user_id, prompt, response):
     }
     supabase.table("Conversations").insert(data).execute()
 
-def get_conversation_history(user_id, limit=5):
-    supabase: Client = create_supabase_client()
-    response = supabase.table("Conversations").select("*").eq("user_id", user_id).order("timestamp", desc=True).limit(limit).execute()
-    return response.data
+def get_user_data_from_supabase(user_id, supabase_client):
+    try:
+        response = supabase_client.table('users').select('*').eq('id', user_id).execute()
+        return response.data
+    except Exception as e:
+        logging.error(f"Erreur lors de la récupération des données utilisateur: {e}")
+        return None
+
