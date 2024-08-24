@@ -7,6 +7,8 @@ def google_search(query, api_key, cse_id, num_results=2):
         response.raise_for_status()
         results = response.json()
         return results.get('items', [])
+        print("resultats Google recus, traitement de la requete...")
+        
     except requests.exceptions.RequestException as e:
         print(f"Erreur lors de la recherche Google: {e}")
         return []
