@@ -10,7 +10,7 @@ from supabase_memory import save_conversation, get_conversation_history
 api_key = os.getenv("GOOGLE_API_KEY")
 cse_id = os.getenv("GOOGLE_CSE_ID")
 openai_api_key = os.getenv("OPENAI_API_KEY")
- # Peut être dynamique dans une vraie application
+user_id = ("") # Peut être dynamique dans une vraie application
 
 print("Variables d'environnement chargées.")
 
